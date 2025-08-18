@@ -1,26 +1,173 @@
+/* Tailwind v4 entry */
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* --- Custom design tokens/utilities without @apply --- */
+
+.bg-purple-canvas {
+  /* deep purple gradient background */
+  background-image: linear-gradient(to bottom right, #312e81, #1e1b4b, #0b093f);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* glass card look */
+.glass-card {
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* inputs on purple background */
+.field {
+  background: rgba(255,255,255,0.10);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.20);
+  border-radius: 12px;
+  padding: 0.5rem 0.75rem;
+}
+.field::placeholder { color: rgba(255,255,255,0.70); }
+.field:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.40);
+  border-color: rgba(255,255,255,0.60);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* chips & buttons */
+.chip {
+  border-radius: 9999px;
+  background: rgba(255,255,255,0.10);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.20);
+  padding: 0.25rem 0.75rem;
 }
+.btn-primary {
+  border-radius: 12px;
+  background: #ffffff;
+  color: #1e1b4b;          /* indigo-950-ish */
+  font-weight: 600;
+  padding: 0.5rem 1.25rem;
+}
+.btn-primary:hover { background: rgba(255,255,255,0.92); }
+.btn-ghost {
+  border-radius: 12px;
+  background: rgba(255,255,255,0.10);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.20);
+  padding: 0.5rem 1rem;
+}
+.btn-ghost:hover { background: rgba(255,255,255,0.18); }
+
+/* text helpers */
+.heading { color: #fff; text-shadow: 0 1px 1px rgba(0,0,0,0.30); }
+.subtle  { color: rgba(255,255,255,0.80); }
+
+.panel {
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 16px;
+  color: #fff;
+}
+
+/* Key/Value rows for booking facts */
+.kv {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 10px 16px;
+}
+.kv .k { color: rgba(255,255,255,0.85); }
+.kv .v { color: #fff; font-weight: 600; }
+
+/* Panel section titles */
+.panel h3 { margin: 0 0 8px; font-weight: 700; color: #fff; }
+
+/* Price summary numbers pop a bit more */
+.price-box .line {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: 6px; color: rgba(255,255,255,0.9);
+}
+.price-box .total { font-size: 1.05rem; font-weight: 800; color: #fff; }
+
+/* --- react-datepicker dark theme --- */
+.dp-popper { z-index: 60; }
+
+.dp-theme.react-datepicker {
+  background: rgba(16, 18, 43, 0.98);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.dp-theme .react-datepicker__header {
+  background: transparent;
+  border-bottom: 1px solid rgba(255,255,255,.15);
+}
+.dp-theme .react-datepicker__current-month,
+.dp-theme .react-datepicker-time__header,
+.dp-theme .react-datepicker-year-header {
+  color: #fff;
+}
+.dp-theme .react-datepicker__day-name,
+.dp-theme .react-datepicker__day {
+  color: rgba(255,255,255,.92);
+}
+.dp-theme .react-datepicker__day:hover {
+  background: rgba(255,255,255,.15);
+}
+.dp-theme .react-datepicker__day--disabled {
+  color: rgba(255,255,255,.3);
+}
+.dp-theme .react-datepicker__day--selected,
+.dp-theme .react-datepicker__day--keyboard-selected {
+  background: #fff;
+  color: #1f1c47;
+}
+.dp-theme .react-datepicker__triangle { display: none; }
+.dp-theme .react-datepicker__navigation-icon::before { border-color: #fff; }
+
+select.field {
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 12px;
+  color: #fff;
+  padding: 10px 12px;
+  appearance: none;          
+}
+
+select.field option,
+select.field optgroup {
+  color: #111827;             
+  background-color: #fff;    
+}
+
+
+select.field option:checked,
+select.field option:hover {
+  background-color: #1e3a8a;  
+  color: #fff;
+}
+
+
+@media (forced-colors: active) {
+  select.field option { color: CanvasText; background: Canvas; }
+}
+
+#dp-portal { position: relative; z-index: 2147483647; } 
+.dp-popper { z-index: 2147483647 !important; }
+
+
+.dp-theme.react-datepicker {
+  background: rgba(16,18,43,.98);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 14px;
+}
+.dp-theme .react-datepicker__header { background: transparent; border-bottom: 1px solid rgba(255,255,255,.15); }
+.dp-theme .react-datepicker__day-name,
+.dp-theme .react-datepicker__day { color: rgba(255,255,255,.92); }
+.dp-theme .react-datepicker__day:hover { background: rgba(255,255,255,.15); }
+.dp-theme .react-datepicker__day--selected,
+.dp-theme .react-datepicker__day--keyboard-selected { background: #fff; color: #1f1c47; }
+.dp-theme .react-datepicker__triangle { display: none; }

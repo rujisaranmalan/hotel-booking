@@ -25,6 +25,12 @@ const dict = {
     viewDetails: "View Details",
     from: "From",
     recommended: "Recommended",
+    trendingNow: "Trending destinations",
+    trendingIntro: "Hand-picked places the community is loving across Thailand",
+    highRatedUnique: "Stay at high-rated unique properties",
+    handpickedIntro: "Curated gems with character and great reviews.",
+    mapExplore: "Explore on the map",
+    mapHint: "Zoom to find more stays",
   },
   th: {
     exploreTitle: "กำลังมองหาอะไรอยู่?",
@@ -49,6 +55,12 @@ const dict = {
     viewDetails: "ดูรายละเอียด",
     from: "เริ่มต้นที่",
     recommended: "แนะนำ",
+    trendingNow: "จุดหมายที่กำลังมาแรง",
+    trendingIntro: "ตัวเลือกยอดนิยมที่ผู้คนกำลังชื่นชอบทั่วไทย",
+    highRatedUnique: "เข้าพักในที่พักที่ได้คะแนนสูงซึ่งมีเอกลักษณ์เฉพาะตัว",
+    handpickedIntro: "คัดสรรพิเศษ เน้นบรรยากาศและรีวิวเยี่ยม",
+    mapExplore: "สำรวจบนแผนที่",
+    mapHint: "ซูมเพื่อดูที่พักเพิ่มเติม",
   },
 } as const;
 

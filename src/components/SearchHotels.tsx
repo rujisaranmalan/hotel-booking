@@ -120,44 +120,64 @@ export default function SearchHotels() {
             </div>
 
             <div className="grid sm:grid-cols-2 gap-3">
-  {/* Check-in */}
-  <div className="flex items-center gap-2 bg-white/10 border border-white/20 rounded-xl px-3 py-2 backdrop-blur">
-    <Calendar className="text-white/90" size={18} />
-    <DatePicker
-      selected={checkIn}
-      onChange={(d) => { /* ...your existing logic... */ }}
-      minDate={new Date()}
-      locale={dpLocale}
-      dateFormat="dd/MM/yyyy"
-      placeholderText="dd/mm/yyyy"
-      className="w-full bg-transparent text-white outline-none"
-      calendarClassName="dp-theme"
-      popperClassName="dp-popper"
-      portalId="dp-portal"                 // ← render into the portal
-      popperProps={{ strategy: "fixed" }}  // ← ignore stacking contexts, pin to viewport
-    />
+  {/* CHECK-IN */}
+  <div className="space-y-1">
+    <label className="text-xs font-medium text-white/80">Check-in</label>
+    <div className="flex items-center gap-2 bg-white/10 border border-white/20 rounded-xl px-3 py-2 backdrop-blur">
+      <Calendar className="text-white/90" size={18} />
+      <DatePicker
+        selected={checkIn}
+        onChange={(d) => {
+          setCheckIn(d);
+          if (d) {
+            const minOut = addDays(d, 1);
+            if (!checkOut || checkOut <= d) setCheckOut(minOut); // keep out > in
+          }
+        }}
+        minDate={new Date()}
+        selectsStart
+        startDate={checkIn}
+        endDate={checkOut}
+        locale={dpLocale}
+        dateFormat="dd/MM/yyyy"
+        placeholderText="dd/mm/yyyy"
+        className="w-full bg-transparent text-white outline-none"
+        calendarClassName="dp-theme"
+        popperClassName="dp-popper"
+        portalId="dp-portal"
+        popperProps={{ strategy: "fixed" }}
+      />
+    </div>
   </div>
 
-  {/* Check-out (always > check-in) */}
-  <div className="flex items-center gap-2 bg-white/10 border border-white/20 rounded-xl px-3 py-2 backdrop-blur">
-    <Calendar className="text-white/90" size={18} />
-    <DatePicker
-      selected={checkOut}
-      onChange={(d) => {
-        if (checkIn && d && d <= checkIn) {
-          setCheckOut(addDays(checkIn, 1));   // force +1 day
-        } else {
-          setCheckOut(d);
-        }
-      }}
-      minDate={checkIn ? addDays(checkIn, 1) : addDays(new Date(), 1)}
-      locale={dpLocale}
-      dateFormat="dd/MM/yyyy"
-      placeholderText="dd/mm/yyyy"
-      className="w-full bg-transparent text-white outline-none"
-      calendarClassName="dp-theme"
-      popperClassName="dp-popper"
-    />
+  {/* CHECK-OUT */}
+  <div className="space-y-1">
+    <label className="text-xs font-medium text-white/80">Check-out</label>
+    <div className="flex items-center gap-2 bg-white/10 border border-white/20 rounded-xl px-3 py-2 backdrop-blur">
+      <Calendar className="text-white/90" size={18} />
+      <DatePicker
+        selected={checkOut}
+        onChange={(d) => {
+          if (checkIn && d && d <= checkIn) {
+            setCheckOut(addDays(checkIn, 1)); // force +1 day
+          } else {
+            setCheckOut(d);
+          }
+        }}
+        minDate={checkIn ? addDays(checkIn, 1) : addDays(new Date(), 1)}
+        selectsEnd
+        startDate={checkIn}
+        endDate={checkOut}
+        locale={dpLocale}
+        dateFormat="dd/MM/yyyy"
+        placeholderText="dd/mm/yyyy"
+        className="w-full bg-transparent text-white outline-none"
+        calendarClassName="dp-theme"
+        popperClassName="dp-popper"
+        portalId="dp-portal"
+        popperProps={{ strategy: "fixed" }}
+      />
+    </div>
   </div>
 </div>
 

@@ -171,3 +171,17 @@ select.field option:hover {
 .dp-theme .react-datepicker__day--selected,
 .dp-theme .react-datepicker__day--keyboard-selected { background: #fff; color: #1f1c47; }
 .dp-theme .react-datepicker__triangle { display: none; }
+
+.leaflet-container { width: 100%; height: 360px; border-radius: 16px; }
+.leaflet-pane, .leaflet-top, .leaflet-bottom { z-index: 40; }
+
+.dp-theme .react-datepicker__day--in-range,
+.dp-theme .react-datepicker__day--in-selecting-range {
+  background: rgba(99,102,241,.25);
+  color: #fff;
+}
+.dp-theme .react-datepicker__day--range-start,
+.dp-theme .react-datepicker__day--range-end {
+  background: #fff;
+  color: #1f1c47;
+}

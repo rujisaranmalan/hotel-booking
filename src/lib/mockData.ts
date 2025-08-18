@@ -5,7 +5,7 @@ export const HOTELS: Hotel[] = [
     id: "h1",
     name: "Chao Phraya Riverside",
     location: "Bangkok",
-    thumbnail: "https://picsum.photos/seed/h1/600/400",
+    thumbnail: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Chao_Phraya_River_-_Bangkok_-_northwards_-_from_King_Taksin_Bridge_-_2021.jpg/1920px-Chao_Phraya_River_-_Bangkok_-_northwards_-_from_King_Taksin_Bridge_-_2021.jpg",
     rating: 4.6,
     roomTypes: [
       { code: "standard", label: "Standard", baseRatePerNight: 1200 },
@@ -29,7 +29,7 @@ export const HOTELS: Hotel[] = [
     id: "h3",
     name: "Andaman Beachfront",
     location: "Phuket",
-    thumbnail: "https://picsum.photos/seed/h3/600/400",
+    thumbnail: "https://www.andamanseafrontpoolvillaphuket.com/images/422.jpg",
     rating: 4.8,
     roomTypes: [
       { code: "standard", label: "Standard", baseRatePerNight: 1600 },
@@ -41,7 +41,7 @@ export const HOTELS: Hotel[] = [
     id: "h4",
     name: "Sukhumvit Skylight",
     location: "Bangkok",
-    thumbnail: "https://picsum.photos/seed/h4/600/400",
+    thumbnail: "https://skyrise-sukhumvit64.com/assets/img/gallery/20200811225137_200617_SKY64_Exterior-A_Final(reflec-light-head-bd50)opacity.jpg",
     rating: 4.7,
     roomTypes: [
       { code: "standard", label: "Standard", baseRatePerNight: 1100 },
@@ -65,7 +65,7 @@ export const HOTELS: Hotel[] = [
     id: "h6",
     name: "Kata Hills Panoramic",
     location: "Phuket",
-    thumbnail: "https://picsum.photos/seed/h6/600/400",
+    thumbnail: "https://pix8.agoda.net/hotelImages/113/1135307/1135307_15121817210038619076.jpg?ca=6&ce=1&s=1024x",
     rating: 4.9,
     roomTypes: [
       { code: "standard", label: "Standard", baseRatePerNight: 1700 },
@@ -101,7 +101,7 @@ export const HOTELS: Hotel[] = [
     id: "h9",
     name: "Railay Cliff Villas",
     location: "Krabi",
-    thumbnail: "https://picsum.photos/seed/h9/600/400",
+    thumbnail: "https://pix8.agoda.net/hotelImages/69111/-1/e0b9f0f8430ad265fae7d6b6cd3e14de.jpg?ce=0&s=1024x",
     rating: 4.7,
     roomTypes: [
       { code: "standard", label: "Standard", baseRatePerNight: 1600 },
@@ -125,7 +125,7 @@ export const HOTELS: Hotel[] = [
     id: "h11",
     name: "Samui Coconut Grove",
     location: "Koh Samui",
-    thumbnail: "https://picsum.photos/seed/h11/600/400",
+    thumbnail: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/231122288.jpg?k=c7dff779ce16ca4e6056b52c7b1fc1d6981662da46f60add01bf28a59ac01508&o=&hp=1",
     rating: 4.6,
     roomTypes: [
       { code: "standard", label: "Standard", baseRatePerNight: 1400 },

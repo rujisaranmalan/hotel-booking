@@ -2,6 +2,8 @@ import "./globals.css";
 import { Sidebar } from "@/components/Sidebar";
 import { PreferencesProvider } from "@/components/providers/PreferencesProvider";
 import "react-datepicker/dist/react-datepicker.css";
+import "leaflet/dist/leaflet.css";
+
 
 export const metadata = { title: "Hotel Booking", description: "Explore & book" };
 

@@ -1,33 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Hotel Booking — Next.js App
 
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+A responsive hotel booking demo built with Next.js (App Router), Tailwind, and a sprinkle of glassmorphism. It covers a full booking flow end-to-end: search → explore hotel → review → payment → success → trips history. No real payments (sorry, Visa), but the UX is realistic.
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Explore & Search
 
-## Learn More
+“Explore” page with search by location (calls mock API /api/hotels).
 
-To learn more about Next.js, take a look at the following resources:
+Result cards link to /hotel/[id] (hotel detail).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Hotel Detail
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Photos, rating, room types.
+
+Room type / dates / guests selection with a nice calendar (portal-based, cannot hide behind cards).
+
+Review & Pricing
+
+Shows check-in, check-out, guests, nights.
+
+Pricing via API (/api/pricing) with discount = 0 and VAT 7%.
+
+Guest details form with validation (zod + react-hook-form).
+
+Payment
+
+Payment methods list (UPI, Cards, Net Banking, PhonePay).
+
+Pay Now CTA → /payment/done with confirmation.
+
+Trips History
+
+Every successful booking is saved to localStorage and shown in /trips (Upcoming / Past).
+
+Powered by BookingsProvider.
+
+Preferences
+
+Language & currency toggles in Profile (persisted in localStorage).
+
+i18n helper t() + <Money /> component for currency formatting.
+
+Responsive UI
+
+Tailwind v4 + custom tokens in globals.css.
+
+Glass cards, light/dark card variants.
+
+(Optional) Map Teaser
+
+Leaflet map + clustering (compatible with React 19 when using the right versions).
+
+Tech Stack
+
+Next.js (App Router)
+
+React 19
+
+Tailwind CSS v4 (via @tailwindcss/postcss)
+
+TypeScript
+
+react-hook-form + zod (validation)
+
+react-datepicker (portalized)
+
+Lucide icons
+
+Leaflet (optional; see notes for React 19 compatibility)
 
 ## Deploy on Vercel
 

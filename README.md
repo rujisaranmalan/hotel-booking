@@ -1,79 +1,70 @@
-Hotel Booking — Next.js App
+# 🏨 Hotel Booking App
 
-A responsive hotel booking demo built with Next.js (App Router), Tailwind, and a sprinkle of glassmorphism. It covers a full booking flow end-to-end: search → explore hotel → review → payment → success → trips history. No real payments (sorry, Visa), but the UX is realistic.
+A modern, responsive hotel booking platform built with **Next.js 13 App Router**, **Tailwind CSS**, and **TypeScript**. Users can explore destinations, search for hotels by location, choose room types, review prices with VAT, and complete bookings through a clean and interactive UI.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-Features
+## ✨ Features
 
-Explore & Search
+- 🌐 **Explore Page** – Showcases popular Thai destinations with images and flags.
+- 🔍 **Hotel Search** – Search hotels by location (via mock JSON API).
+- 🏨 **Hotel Detail Page** – View room types, availability, and "Book Now" options.
+- 📅 **Booking Flow** – Input check-in/check-out dates and guest info using `react-datepicker`.
+- 💸 **Pricing Calculator** – Auto-calculates price, applies 7% VAT, and displays cost breakdown.
+- 💳 **Payment Page** – Includes card & QR payment mock form with live summary.
+- ✅ **Booking Confirmation** – Confirmation page showing selected method and total cost.
+- 🧳 **Trips Page** – Displays all previously booked trips using context providers.
 
-“Explore” page with search by location (calls mock API /api/hotels).
+---
 
-Result cards link to /hotel/[id] (hotel detail).
+## 🧪 Tech Stack
 
-Hotel Detail
+- [x] **Next.js 13+ (App Router)**
+- [x] **TypeScript**
+- [x] **Tailwind CSS**
+- [x] **React Context API** (for booking & preference management)
+- [x] **Leaflet & React-Leaflet** (interactive map for explore page)
+- [x] **React Datepicker**
+- [x] **Mocked JSON API** for hotel and pricing data
 
-Photos, rating, room types.
+---
 
-Room type / dates / guests selection with a nice calendar (portal-based, cannot hide behind cards).
+## 📁 Project Structure
 
-Review & Pricing
+src/
+├── app/ # Pages & routing (App Router)
+│ ├── page.tsx # Landing page
+│ ├── explore/ # Hotel explore page
+│ ├── payment/ # Payment & done pages
+│ └── trips/ # Booked trips page
+├── components/ # UI components
+│ ├── home/ # Explore & Map components
+│ ├── hotel/ # Hotel card/details
+│ └── providers/ # Context providers
+├── lib/ # Mock API logic
+├── public/ # Assets (flags etc.)
+└── styles/ # Global styles (Tailwind)
 
-Shows check-in, check-out, guests, nights.
 
-Pricing via API (/api/pricing) with discount = 0 and VAT 7%.
+---
 
-Guest details form with validation (zod + react-hook-form).
+## 🚀 Getting Started
 
-Payment
+```bash
+# 1. Clone the repo
+git clone https://github.com/rujisaranmalan/hotel-booking.git
+cd hotel-booking
 
-Payment methods list (UPI, Cards, Net Banking, PhonePay).
+# 2. Install dependencies
+npm install
 
-Pay Now CTA → /payment/done with confirmation.
+# 3. Run locally
+npm run dev
 
-Trips History
+# 4. Open in browser
+http://localhost:3000
 
-Every successful booking is saved to localStorage and shown in /trips (Upcoming / Past).
+🙌 Author
 
-Powered by BookingsProvider.
-
-Preferences
-
-Language & currency toggles in Profile (persisted in localStorage).
-
-i18n helper t() + <Money /> component for currency formatting.
-
-Responsive UI
-
-Tailwind v4 + custom tokens in globals.css.
-
-Glass cards, light/dark card variants.
-
-(Optional) Map Teaser
-
-Leaflet map + clustering (compatible with React 19 when using the right versions).
-
-Tech Stack
-
-Next.js (App Router)
-
-React 19
-
-Tailwind CSS v4 (via @tailwindcss/postcss)
-
-TypeScript
-
-react-hook-form + zod (validation)
-
-react-datepicker (portalized)
-
-Lucide icons
-
-Leaflet (optional; see notes for React 19 compatibility)
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Rujisaran Malan
+Portfolio | GitHub

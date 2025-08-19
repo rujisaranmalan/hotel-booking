@@ -203,3 +203,30 @@ select.field option:hover {
   background: #fff;
   color: #1f1c47;
 }
+
+.panel-light {
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 16px;
+  color: #1f1c47;                  /* dark, readable text */
+  box-shadow: 0 8px 24px rgba(0,0,0,.08);
+}
+.panel-light .line { color: #1f1c47; }
+.panel-light h1, .panel-light h2, .panel-light h3 { color: #1f1c47; }
+
+
+.btn-ghost-light {
+  border-radius: 12px;
+  background: rgba(0,0,0,0.04);
+  color: #1f1c47;
+  border: 1px solid rgba(0,0,0,0.10);
+  padding: 0.5rem 1rem;
+}
+.btn-ghost-light:hover { background: rgba(0,0,0,0.08); }
+
+
+@keyframes success-pop {
+  0% { transform: scale(.85); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.success-pop { animation: success-pop .35s ease-out both; }

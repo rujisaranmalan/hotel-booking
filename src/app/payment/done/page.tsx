@@ -1,19 +1,37 @@
 import Link from "next/link";
+import { CheckCircle2 } from "lucide-react";
 
-export default function DonePage() {
+export default async function PaymentDone(
+  props: { searchParams: Promise<{ method?: string; total?: string }> }
+) {
+  const sp = await props.searchParams
+  const method = sp.method ?? "Payment";
+  const total = Number(sp.total ?? 0);
+
   return (
-    <div className="flex flex-col items-center justify-center py-16">
-      <div className="w-40 h-40 rounded-full bg-primary/10 grid place-items-center mb-6">
-        {/* Simple “astronaut” stand-in */}
-        <div className="w-20 h-20 rounded-full border-4 border-primary relative">
-          <div className="absolute left-1/2 -translate-x-1/2 -bottom-3 w-12 h-12 rounded-full bg-primary/20" />
+    <div className="min-h-[60vh] grid place-items-center text-center px-4">
+      <div className="space-y-5 max-w-xl">
+        {/* Icon */}
+        <div className="mx-auto size-24 rounded-full bg-white/10 ring-2 ring-white/40 grid place-items-center success-pop">
+          {/* Lucide icons are stroked SVGs; color via text-*, adjust size/strokeWidth */}
+          <CheckCircle2 className="text-emerald-400" size={70} strokeWidth={2.5} />
         </div>
+
+        {/* Title */}
+        <h1 className="text-2xl md:text-3xl font-extrabold heading">
+          Booking Successfully completed
+        </h1>
+
+        {/* Subtext */}
+        <p className="text-white/75">
+          Your trip schedule is ready. {method} confirmed for{" "}
+          <b>฿{total.toLocaleString()}</b>. Please check under trips section.
+        </p>
+
+        <Link href="/" className="btn-primary inline-block">
+          Home
+        </Link>
       </div>
-      <h1 className="text-2xl font-bold text-center">Booking Successfully completed</h1>
-      <p className="text-gray-600 text-center mt-2">
-        Your trip schedule is ready. Please check under profile.
-      </p>
-      <Link href="/" className="mt-6 rounded-xl bg-primary text-white px-5 py-2">Home</Link>
     </div>
   );
 }

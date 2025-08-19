@@ -65,13 +65,15 @@ const dict = {
 } as const;
 
 type Dict = typeof dict;
-type Table = Dict["en"];                 
+type Table = Dict["en"];
 type Keys = keyof Table;
-type FuncKeys = {
-  [K in Keys]: Table[K] extends (...a: any[]) => string ? K : never
-}[Keys];
-type StringKeys = Exclude<Keys, FuncKeys>;
 
+
+type FuncKeys = {
+  [K in Keys]: Table[K] extends (...a: infer _P) => string ? K : never
+}[Keys];
+
+type StringKeys = Exclude<Keys, FuncKeys>;
 
 export function t<K extends StringKeys>(key: K, lang: Language): string;
 export function t<K extends FuncKeys>(

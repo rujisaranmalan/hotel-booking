@@ -25,3 +25,18 @@ export interface PricingResult {
   vat: number;       // 7%
   total: number;
 }
+
+export type Booking = {
+  id: string;                 // unique booking id
+  hotelId: string;
+  hotelName: string;
+  location: string;
+  thumbnail?: string;
+  roomType: string;           // "standard" | "deluxe" | "suite"
+  checkIn: string;            // date (yyyy-mm-dd)
+  checkOut: string;           // date
+  guests: number;
+  totalTHB: number;
+  method: string;             // payment method used
+  createdAt: string;          // timestamp
+};

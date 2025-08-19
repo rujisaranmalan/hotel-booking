@@ -5,12 +5,23 @@ export default function PaymentPage({ searchParams }: { searchParams: any }) {
   const vat      = Number(searchParams.vat || 0);
   const total    = Number(searchParams.total || 0);
 
+  const order = {
+    hotelId:   searchParams.hotelId ?? "",
+    hotelName: searchParams.hotelName ?? "",     // include if you have it
+    location:  searchParams.location ?? "",
+    thumbnail: searchParams.thumbnail ?? "",
+    roomType:  searchParams.roomType ?? "standard",
+    checkIn:   searchParams.checkIn ?? "",
+    checkOut:  searchParams.checkOut ?? "",
+    guests:    Number(searchParams.guests ?? 1),
+  };
+
   return (
     <div className="grid lg:grid-cols-[1.2fr_.8fr] gap-6">
       <section className="panel-light p-6 space-y-4">
         <h1 className="text-xl font-bold">Payment Details</h1>
         {/* ⬇️ pass total to the form */}
-        <PaymentForm total={total} />
+        <PaymentForm total={total} order={order} />
       </section>
 
       <aside className="panel-light p-6 h-fit">

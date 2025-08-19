@@ -2,8 +2,9 @@
 import Link from "next/link";
 import { Home, Search, Heart, User } from "lucide-react";
 import { usePathname } from "next/navigation";
+import type { LucideIcon } from "lucide-react";
 
-const Item = ({ href, icon: Icon, label }: { href: string; icon: any; label: string }) => {
+const Item = ({ href, icon: Icon, label }: { href: string; icon: LucideIcon; label: string }) => {
   const path = usePathname();
   const active = path === href || (href !== "/" && path.startsWith(href));
   return (

@@ -9,6 +9,8 @@ import { Hotel } from "@/lib/types";
 import { usePreferences } from "@/components/providers/PreferencesProvider";
 import Money from "@/components/Money";
 import { t } from "@/lib/i18n";
+import type { LucideIcon } from "lucide-react";
+
 import {
   Calendar,
   MapPin,
@@ -74,7 +76,7 @@ export default function SearchHotels() {
     return copy;
   }, [results, sortBy]);
 
-  const tabBtn = (tLabel: string, tKey: Tab, Icon: any) => (
+  const tabBtn = (tLabel: string, tKey: Tab, Icon: LucideIcon) => (
     <button
       type="button"
       onClick={() => setTab(tKey)}

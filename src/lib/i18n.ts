@@ -64,11 +64,33 @@ const dict = {
   },
 } as const;
 
-export function t<K extends keyof typeof dict["en"]>(
+type Dict = typeof dict;
+type Table = Dict["en"];                 
+type Keys = keyof Table;
+type FuncKeys = {
+  [K in Keys]: Table[K] extends (...a: any[]) => string ? K : never
+}[Keys];
+type StringKeys = Exclude<Keys, FuncKeys>;
+
+
+export function t<K extends StringKeys>(key: K, lang: Language): string;
+export function t<K extends FuncKeys>(
   key: K,
   lang: Language,
-  ...args: any[]
+  ...args: Table[K] extends (...a: infer A) => string ? A : never
+): string;
+
+
+export function t(
+  key: Keys,
+  lang: Language,
+  ...args: unknown[]
 ): string {
-  const entry = (dict as any)[lang]?.[key] ?? (dict as any).en[key];
-  return typeof entry === "function" ? entry(...args) : entry;
+  const table = (dict[lang] ?? dict.en) as Table;
+  const entry = table[key];
+
+  if (typeof entry === "function") {
+    return (entry as (...a: unknown[]) => string)(...args);
+  }
+  return entry as string;
 }

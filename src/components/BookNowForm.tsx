@@ -33,7 +33,8 @@ export default function BookNowForm({ hotel }: { hotel: Hotel }) {
 			<div>
 				<label className="block text-sm mb-1">Room type</label>
 				<select
-					className="w-full border rounded-xl px-3 py-2"
+					id="roomType"
+					className="field roomtype-select w-full rounded-xl px-3 py-2"
 					value={roomType}
 					onChange={(e) => setRoomType(e.target.value as RoomType)}
 				>

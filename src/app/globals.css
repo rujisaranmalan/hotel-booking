@@ -138,15 +138,33 @@ select.field {
 
 select.field option,
 select.field optgroup {
-  color: #111827;             
-  background-color: #fff;    
+  background-color: #0b1024;  
+  color: #e5e7eb;            
 }
 
 
 select.field option:checked,
 select.field option:hover {
-  background-color: #1e3a8a;  
+  background-color: #7c3aed;
   color: #fff;
+}
+
+
+.roomtype-select { 
+  background: rgba(124,58,237,.15);
+  border-color: rgba(124,58,237,.35);
+}
+
+.roomtype-select option,
+.roomtype-select optgroup {
+  background-color: #0f0a28; 
+  color: #f5f3ff;          
+}
+
+.roomtype-select option:checked,
+.roomtype-select option:hover {
+  background-color: #8b5cf6; 
+  color: #0f0a28;
 }
 
 

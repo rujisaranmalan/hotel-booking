@@ -6,9 +6,9 @@ import { useRouter, useSearchParams } from "next/navigation";
 
 const GuestSchema = z.object({
   fullName: z.string().min(1, "Required"),
-  email: z.string().email(),
-  phone: z.string().min(1, "Required"),
-  agree: z.literal(true, { errorMap: () => ({ message: "You must agree" }) })
+  email: z.string().trim().email({ message: "Invalid email" }),
+  phone: z.string().trim().min(6, { message: "Required" }),
+  agree: z.boolean().refine((v) => v === true, { message: "You must agree" }),
 });
 type GuestFormData = z.infer<typeof GuestSchema>;
 
